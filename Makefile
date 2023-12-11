@@ -1,13 +1,16 @@
 test:
 	pytest src/
 
+lint:
+	ruff check src/
+
 format:
 	ruff format src/
 
+build: format types test
+
 types:
 	mypy src/
-
-build: format types test
 
 deps:
 	pipenv update
